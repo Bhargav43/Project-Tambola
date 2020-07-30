@@ -1,11 +1,14 @@
+""" Module Returns Hex-Color Sets as Required by tambola_printer.py"""
+
+# pylint: disable= C0301, R1721
+
 import random
 
-def Colors(selected = 'any'):
+def colors(selected='any'):
     """
     Function for color-code sets.
     """
-
-    colors = {
+    cols = {
         # Order : ( text, ticket, blank )
         'sky': ('#0795C9', '#5BCFD2', '#EEFFFF'),
         'blue': ('#0D1C80', '#141495', '#DDEAFA'),
@@ -17,15 +20,11 @@ def Colors(selected = 'any'):
         'brown': ('#8B4513', '#CD853F', '#F5DEB3')
         }
 
-    if selected == 'any':
-        return colors[[i for i in colors.keys()][random.randint(0,len(colors)-1)]]
-    else:
-        return colors[selected]
+    return cols[[i for i in cols][random.randint(0, len(cols)-1)]] if selected == 'any' else cols[selected]
 
 def main():
-    random_color = Colors()
-    print(f'Random Color Set: {random_color}')
+    """ Main Functions Helps in Printing Sample Return Value """
+    print(f'Random Color Set: {colors()}')
 
 if __name__ == "__main__":
     main()
-

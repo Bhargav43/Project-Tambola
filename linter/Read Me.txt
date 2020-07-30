@@ -1,0 +1,29 @@
+Prerequisite Knowledge:
+	Pylint is a tool that checks for errors in Python code, tries to enforce a coding standard and looks for code smells. It can also look for certain type errors, it can recommend suggestions about how particular blocks can be refactored and can offer you details about the code’s complexity. Pylint will display a number of messages as it analyzes the code and it can also be used for displaying some statistics about the number of warnings and errors found in different files. The messages are classified under various categories such as errors and warnings.
+
+How to Install:
+	Pylint can be simply installed by running the pip as
+		pip install pylint
+
+How to Run:
+	Open Terminal and Run the following,
+			pylint program.py
+	Eg.:	pylint TambolaTickets.py
+
+Ignore Warnings:
+	To ignore warning, you can save a copy of pylint configuration file, make the changes and locate the file while running the linter.
+	i. Save the copy of pylint config. file.
+		Run the following command in terminal.
+			pylint --generate-rcfile > path\.pylintrc
+		Eg.	pylint --generate-rcfile > "C:\Users\HP\Desktop\.pylintrc"
+	ii. Make the changes.
+		I want to suppress the following warnings from linter.
+			C0303: Trailing whitespace (trailing-whitespace)
+			W0312: Found indentation with tabs instead of spaces (mixed-indentation)
+			W0702: No exception type(s) specified (bare-except)
+			R1721: Unnecessary use of a comprehension (unnecessary-comprehension)
+		Hence, I've added C0303, W0312, W0702, R1721 to the disable in config file.
+	iii. Locate the file while running the Linter.
+		Add the argument --rcfile to the command as follows,
+			pylint --rcfile="Path to config file" program.py
+		Eg.:pylint --rcfile=.\..\linter\.pylintrc tambola_tickets.py
